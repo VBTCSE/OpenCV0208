@@ -76,7 +76,6 @@ int main(int argc, char** argv)
 	// from a camera whose index is 0
 	//-------------------------------------------------------------------------
 #pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
-	cap.open(0);
 
 
 
@@ -89,12 +88,6 @@ int main(int argc, char** argv)
 	// Use the isOpened function of the VideoCapture class.
 	//-------------------------------------------------------------------------
 #pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
-	if (!cap.isOpened())
-	{
-		cerr << "Could not open capture device." << endl;
-		system("pause");
-		return -1;
-	}
 
 
 
@@ -124,9 +117,6 @@ int main(int argc, char** argv)
 	// displaying each of the three videos.
 	//-------------------------------------------------------------------------
 #pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
-	namedWindow("Raw Video", WINDOW_AUTOSIZE);
-	namedWindow("Monochromatic Image", WINDOW_AUTOSIZE);
-	namedWindow("Edge Detection Image", WINDOW_AUTOSIZE);
 
 
 
@@ -147,7 +137,6 @@ int main(int argc, char** argv)
 		// allocated above).
 		//-------------------------------------------------------------------------
 #pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
-		cap >> frame;
 
 
 
@@ -173,8 +162,6 @@ int main(int argc, char** argv)
 		// for the L2gradient.  You can try other values, to see what the effect is.
 		//-------------------------------------------------------------------------
 #pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
-		cvtColor(frame, imageGray, COLOR_BGR2GRAY);
-		Canny(imageGray, imageEdgeDetect, 20, 70, 3, true);
 
 
 
@@ -187,9 +174,6 @@ int main(int argc, char** argv)
 		// in each of the three windows created above.
 		//-------------------------------------------------------------------------
 #pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
-		imshow("Raw Video", frame);
-		imshow("Monochromatic Image", imageGray);
-		imshow("Edge Detection Image", imageEdgeDetect);
 
 
 
@@ -204,12 +188,6 @@ int main(int argc, char** argv)
 		// break out of the "forever" loop, ending the program.
 		//-------------------------------------------------------------------------
 #pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
-		int n = waitKey(33);
-
-		if (n < 255)
-		{
-			break;
-		}
 
 
 	}
@@ -225,9 +203,6 @@ int main(int argc, char** argv)
 	// each of the three videos.
 	//-------------------------------------------------------------------------
 #pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
-	imwrite(filenameRawVideo, frame);
-	imwrite(filenameMonochromatic, imageGray);
-	imwrite(filenameEdgeDetect, imageEdgeDetect);
 
 
 
